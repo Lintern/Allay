@@ -2,6 +2,8 @@ import { defineConfig } from "vite";
 import vue from "@vitejs/plugin-vue";
 import Components from "unplugin-vue-components/vite";
 import { NaiveUiResolver } from "unplugin-vue-components/resolvers";
+import Icons from "unplugin-icons/vite";
+import IconsResolver from "unplugin-icons/resolver";
 import AutoImport from "unplugin-auto-import/vite";
 // @ts-expect-error type error without @types/node package
 import process from "node:process";
@@ -12,12 +14,15 @@ export default defineConfig(() => ({
   plugins: [
     vue(),
     Components({
-      resolvers: [NaiveUiResolver()],
+      resolvers: [NaiveUiResolver(), IconsResolver()],
       dts: "src/components.d.ts",
     }),
     AutoImport({
       imports: ["vue", "vue-router", "pinia"],
       dts: "src/auto-imports.d.ts",
+    }),
+    Icons({
+      compiler: "vue3",
     }),
   ],
 
