@@ -5,7 +5,7 @@ import { NaiveUiResolver } from "unplugin-vue-components/resolvers";
 import Icons from "unplugin-icons/vite";
 import IconsResolver from "unplugin-icons/resolver";
 import AutoImport from "unplugin-auto-import/vite";
-// @ts-expect-error type error without @types/node package
+import { fileURLToPath, URL } from "node:url";
 import process from "node:process";
 const host = process.env.TAURI_DEV_HOST;
 
@@ -25,6 +25,12 @@ export default defineConfig(() => ({
       compiler: "vue3",
     }),
   ],
+
+  resolve: {
+    alias: {
+      "@": fileURLToPath(new URL("./src", import.meta.url)),
+    },
+  },
 
   // Vite options tailored for Tauri development and only applied in `tauri dev` or `tauri build`
   //

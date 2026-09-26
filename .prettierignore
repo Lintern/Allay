@@ -1,0 +1,6 @@
+dist
+node_modules
+src-tauri/target
+pnpm-lock.yaml
+src/components.d.ts
+src/auto-imports.d.ts
