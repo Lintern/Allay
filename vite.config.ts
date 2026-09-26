@@ -1,5 +1,6 @@
 import { defineConfig } from "vite";
 import vue from "@vitejs/plugin-vue";
+import VueDevTools from "vite-plugin-vue-devtools";
 import Components from "unplugin-vue-components/vite";
 import { NaiveUiResolver } from "unplugin-vue-components/resolvers";
 import Icons from "unplugin-icons/vite";
@@ -13,6 +14,7 @@ const host = process.env.TAURI_DEV_HOST;
 export default defineConfig(() => ({
   plugins: [
     vue(),
+    VueDevTools(),
     Components({
       resolvers: [NaiveUiResolver(), IconsResolver()],
       dts: "src/components.d.ts",
