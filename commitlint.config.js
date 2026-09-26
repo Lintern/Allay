@@ -1,7 +1,7 @@
 export default {
   parserPreset: {
     parserOpts: {
-      headerPattern: /^([^\w]*)?(\w+)(?:\(([\w-]+)\))?:\s*(.+)$/,
+      headerPattern: /^([^\w]+)(\w+)(?:\(([\w-]+)\))?:\s*(.+)$/,
       headerCorrespondence: ["emoji", "type", "scope", "subject"],
     },
   },
@@ -18,13 +18,14 @@ export default {
         "chore",
         "release",
         "del",
+        "i18n",
         "test",
         "build",
         "revert",
         "merge",
       ],
     ],
-    "scope-enum": [2, "always", ["fe", "be", "cfg", "deps", "ci", "docs"]],
+    "scope-enum": [2, "always", ["fe", "be", "cfg", "ci", "docs"]],
     "scope-empty": [0],
     "type-empty": [2, "never"],
     "subject-empty": [2, "never"],
